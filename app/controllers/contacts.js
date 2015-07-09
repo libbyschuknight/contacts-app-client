@@ -6,6 +6,8 @@ export default Ember.Controller.extend({
 
   isShowingPhoneNumber: false,
 
+  nameInController: '', // data binding - adding to above table as typing into name box
+
   contactsWithEmail: Ember.computed('model.@each', function() {
     var model = this.get('model');
     var filteredModel = model.filterBy('email');

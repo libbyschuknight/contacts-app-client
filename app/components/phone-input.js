@@ -2,14 +2,18 @@ import Ember from 'ember';
 
 export default Ember.TextField.extend({
 
-  dasherizeDigits: Ember.observer('value', function() {
-    var valueString = this.get('value').replace(/\D+/g, '');
+  becomeFocused: function() {
+      this.$().focus();
+  }.on('didInsertElement'),
 
-    if (!Ember.isBlank(valueString)) {
-      valueString = valueString.match(/\d{1,3}/g).join('-');
+  dasherizeDigits: Ember.observer('value', function() {
+    var valueNumber = this.get('value').replace(/\D+/g, '');
+
+    if (!Ember.isBlank(valueNumber)) {
+      valueNumber = valueNumber.match(/\d{1,3}/g).join('-');
     }
 
-    this.set('value', valueString);
+    this.set('value', valueNumber);
   })
 
 });

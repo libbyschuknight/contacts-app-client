@@ -3,7 +3,9 @@
 <p>Database size: {{model.length}}</p>
 <p>Contacts with email: {{contactsWithEmail}}</p>
 
-{{contacts/add-contact-form action='addNewContact'}}
+{{contacts/add-contact-form action='addNewContact' name=nameInController}}
+
+{{nameInController}}
 
 <table class="table table-bordered table-hover">
 
